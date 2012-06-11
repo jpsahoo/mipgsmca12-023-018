@@ -27,8 +27,6 @@ public class LoginAction extends DispatchAction {
 		LoginForm loginForm = (LoginForm) form;
 		Login login = loginForm.getLogin();
 		
-		//Test comment
-		
 		UserSession userSession = null;
 		LoginService loginService = ServiceFactory.getLoginService();
 		
