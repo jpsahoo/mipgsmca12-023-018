@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is a blank Tiles definition file with a commented example.
+-->
+
+<tiles-definitions>
+    <definition name="applicationLayout" path="/jsp/common/layout.jsp">
+        <put name="title"  value="Alumni Portal" />
+        <put name="header" value="/jsp/common/header.jsp" />
+        <put name="links"   value="/jsp/common/links.jsp" />
+        <put name="login"   value="/jsp/common/login.jsp" />
+        <put name="footer" value="/jsp/common/footer.jsp" />
+        <put name="body"   value="/jsp/common/home.jsp" />
+    </definition>
+    
+    <definition name="homePage" extends="applicationLayout">
+        <put name="body" value="/jsp/home.jsp"></put>
+    </definition>
+    <definition name="registrationPage" extends="applicationLayout">
+        <put name="body" value="/jsp/registration.jsp"></put>
+    </definition>
+    
+     <definition name="registrationLinks" extends="applicationLayout">
+        <put name="body" value="/jsp/registrationLinks.jsp"></put>
+    </definition>
+    <definition name="showAlumniSearchForm" extends="applicationLayout">
+        <put name="body" value="/jsp/findAlumni.jsp"></put>
+    </definition>
+     <definition name="registrationForm" extends="applicationLayout">
+        <put name="body" value="/jsp/registrationForm.jsp"></put>
+    </definition>
+    
+    <definition name="registrationPage" extends="applicationLayout">
+        <put name="body" value="/jsp/registrationForm.jsp"></put>
+    </definition>
+    <definition name="alumniRegistrationPage" extends="applicationLayout">
+        <put name="body" value="/jsp/alumniRegistrationForm.jsp"></put>
+    </definition>
+    <definition name="userHomePage" extends="applicationLayout">
+        <put name="body" value="/jsp/userHome.jsp"></put>
+    </definition>
+    <definition name="registrationErrorPage" extends="applicationLayout">
+        <put name="body" value="/jsp/registrationError.jsp"></put>
+    </definition>
+    <definition name="loginErrorPage" extends="applicationLayout">
+        <put name="body" value="/jsp/loginError.jsp"></put>
+    </definition>
+    <definition name="registrationSuccessPage" extends="applicationLayout">
+        <put name="body" value="/jsp/registrationSuccess.jsp"></put>
+    </definition>
+	<definition name="searchResults" extends="applicationLayout">
+        <put name="body" value="/jsp/searchResults.jsp"></put>
+    </definition>
+</tiles-definitions>
