@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+    <form-beans>
+        <form-bean name="registrationForm" type="ac.mipgs.action.RegistrationForm" />
+        <form-bean name="loginForm" type="ac.mipgs.action.LoginForm" />
+        <form-bean name="searchForm" type="ac.mipgs.action.AlumniSearchForm" />
+    </form-beans>
+    
+    <global-exceptions>
+        <exception key="expired.password" type="app.ExpiredPasswordException" path="/changePassword.jsp"/>
+    </global-exceptions>
+    <global-forwards>
+        <forward name="welcome" path="/Welcome.do"/>
+    </global-forwards>
+
+    <action-mappings>
+        <action path="/index" type="ac.mipgs.action.NavigationAction" parameter="method" name="registrationForm">
+    	    <forward name="success" path="homePage"></forward>
+    	</action>
+    	
+    	<action path="/showRegistrationLinks" type="ac.mipgs.action.NavigationAction" parameter="method" name="registrationForm">
+    	    <forward name="success" path="registrationLinks"></forward>
+    	</action>
+    	<action path="/showAlumniSearchForm" type="ac.mipgs.action.NavigationAction" parameter="method" name="searchForm">
+    	    <forward name="success" path="showAlumniSearchForm"></forward>
+    	</action>
+    	<action path="/navigateRegistration" type="ac.mipgs.action.NavigationAction" parameter="method" name="registrationForm" scope="request">
+    	    <forward name="success" path="registrationForm"></forward>
+    	</action>
+    	
+    	<action path="/register" type="ac.mipgs.action.RegistrationAction" parameter="method" name="registrationForm">
+    	    <forward name="success" path="registrationSuccessPage"></forward>
+    	    <forward name="failed" path="registrationErrorPage"></forward>
+    	</action>
+    	<action path="/logout" type="ac.mipgs.action.LoginAction" parameter="method" name="loginForm">
+    	    <forward name="success" path="userHomePage"></forward>
+    	</action>
+    	<action path="/login" type="ac.mipgs.action.LoginAction" parameter="method" name="loginForm">
+    	    <forward name="success" path="userHomePage"></forward>
+    	    <forward name="failed" path="loginErrorPage"></forward>
+    	</action>
+    	<action path="/searchAlumni" type="ac.mipgs.action.AlumniSearchAction" parameter="method" name="searchForm">
+    	    <forward name="success" path="searchResults" />
+    	</action>
+    </action-mappings>
+
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+    <message-resources parameter="MessageResources" />
+
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+      <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+      <set-property property="moduleAware" value="true" />
+    </plug-in>
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property property="pathnames"
+        value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+  	</plug-in>
+
+</struts-config>
