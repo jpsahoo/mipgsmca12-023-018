@@ -46,6 +46,8 @@
     	<action path="/searchAlumni" type="ac.mipgs.action.AlumniSearchAction" parameter="method" name="searchForm">
     	    <forward name="success" path="searchResults" />
     	</action>
+    	<action path="/getPhoto" type="ac.mipgs.action.ProfileAction" parameter="method">
+    	</action>
     </action-mappings>
 
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

@@ -7,6 +7,16 @@
 <%@taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 
+<script type="text/javascript">
+<!--
+
+function showUploadWindow() {
+	var uploadDiv = document.getElementById("uploadDiv");
+	uploadDiv.style.display = "block";
+}
+//-->
+</script>
+
 <%
 
 UserSession userSession = (UserSession)session.getAttribute(Constants.LOGIN_INFO);
@@ -33,6 +43,7 @@ if(userSession == null) {
 <%
 } else {
 	String fullName = userSession.getFullName();
+	String id = userSession.getId();
 %>
 <table id="leftPan" width="100%">
 	<tr>
@@ -49,10 +60,18 @@ if(userSession == null) {
 					</table>
 				</div>
 				<div align="center" style="width: 100%; height: 70%; vertical-align: middle;">
-					<img alt="" src="/alumni/images/profile_default.png" onclick="getCompleteProfile(this.form)"> 
+					<img alt="" src='/alumni/getPhoto.do?method=getPhoto&id=<%=id %>' onclick="showUploadWindow()"> 
 				</div>
 			</form>
 		</td>
 	</tr>
 </table>
 <%}%>
+
+<div style="display: none; z-index: 1" id="uploadDiv">
+	Upload div here
+	<%--<html:form action="" enctype="multipart/form-data">
+		
+	</html:form>
+	 --%>
+</div>
