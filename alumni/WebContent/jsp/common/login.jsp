@@ -10,9 +10,12 @@
 <script type="text/javascript">
 <!--
 
-function showUploadWindow() {
-	var uploadDiv = document.getElementById("uploadDiv");
-	uploadDiv.style.display = "block";
+function openProfile(id) {
+	var action = '/alumni/gotoProfile.do?method=gotoProfile&id=' + id;
+	var profileForm = document.createElement("form");
+	profileForm.method = 'post';
+	profileForm.action = action;
+	profileForm.submit();
 }
 //-->
 </script>
@@ -60,18 +63,10 @@ if(userSession == null) {
 					</table>
 				</div>
 				<div align="center" style="width: 100%; height: 70%; vertical-align: middle;">
-					<img alt="" src='/alumni/getPhoto.do?method=getPhoto&id=<%=id %>' onclick="showUploadWindow()"> 
+					<img style="width: 100px; height: 100px;" alt="" src='/alumni/getPhoto.do?method=getPhoto&id=<%=id %>' onclick="openProfile(<%=id %>)"> 
 				</div>
 			</form>
 		</td>
 	</tr>
 </table>
 <%}%>
-
-<div style="display: none; z-index: 1" id="uploadDiv">
-	Upload div here
-	<%--<html:form action="" enctype="multipart/form-data">
-		
-	</html:form>
-	 --%>
-</div>

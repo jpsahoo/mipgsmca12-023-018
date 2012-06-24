@@ -16,6 +16,8 @@ public class Registration implements Serializable {
 	private String userName;
 	private String password;
 	private String dob;
+	private String type;
+	private byte[] photo;
 	
 	private Course course = new Course();
 	private Address address = new Address();
@@ -98,5 +100,17 @@ public class Registration implements Serializable {
 	}
 	public Alumni getAlumni() {
 		return alumni;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
+	}
+	public byte[] getPhoto() {
+		return photo;
 	}
 }
