@@ -9,6 +9,7 @@ public class AlumniFinder implements Serializable {
 	private String name;
 	private String course;
 	private String platform;
+	private String passoutYear;
 	private String searchType;
 	
 	public String getName() {
@@ -34,5 +35,11 @@ public class AlumniFinder implements Serializable {
 	}
 	public String getSearchType() {
 		return searchType;
+	}
+	public void setPassoutYear(String passoutYear) {
+		this.passoutYear = passoutYear;
+	}
+	public String getPassoutYear() {
+		return passoutYear;
 	}
 }

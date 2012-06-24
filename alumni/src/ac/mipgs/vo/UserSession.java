@@ -9,6 +9,8 @@ public class UserSession implements Serializable {
 	
 	private String userName;
 	private String fullName;
+	private String id;
+	
 	private List<Integer> appIds;
 	
 	public String getUserName() {
@@ -28,5 +30,11 @@ public class UserSession implements Serializable {
 	}
 	public void setAppIds(List<Integer> appIds) {
 		this.appIds = appIds;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getId() {
+		return id;
 	}
 }

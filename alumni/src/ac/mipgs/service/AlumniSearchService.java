@@ -9,6 +9,7 @@ public class AlumniSearchService {
 	
 	private static final String SEARCH_TYPE_NAME = "byName";
 	private static final String SEARCH_TYPE_PLATFORM = "byPlatform";
+	private static final String SEARCH_TYPE_PASSOUT_YEAR = "byPassoutYear";
 
 	public SearchResultByName[] getSearchResults(AlumniFinder finder) throws Exception {
 		
@@ -19,6 +20,9 @@ public class AlumniSearchService {
 				searchResultByName = AlumniSearchDao.searchByName(finder);
 			} else if (SEARCH_TYPE_PLATFORM.equals(finder.getSearchType())) {
 				searchResultByName = AlumniSearchDao.searchByPlatform(finder);
+			}
+			else if (SEARCH_TYPE_PASSOUT_YEAR.equals(finder.getSearchType())) {
+				searchResultByName = AlumniSearchDao.searchByPassoutYear(finder);
 			}
 			
 		} catch (Exception e) {
