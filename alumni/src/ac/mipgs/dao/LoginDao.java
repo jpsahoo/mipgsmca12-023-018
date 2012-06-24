@@ -10,8 +10,9 @@ import ac.mipgs.vo.UserSession;
 public class LoginDao extends Dao {
 	
 	private static final String DO_LOGIN  = new StringBuffer("select ")
-		.append(" first_name ")
-		.append(" ,last_name ")
+		.append("  first_name ")
+		.append(", last_name ")
+		.append(", id ")
 		.append(" from alumni_details ")
 		.append(" where ")
 		.append(" user_name=?")
@@ -37,6 +38,7 @@ public class LoginDao extends Dao {
 			
 			userSession.setFullName(fullName);
 			userSession.setUserName(login.getUserName());
+			userSession.setId(rs.getString("id"));
 		}
 		return userSession;
 	}

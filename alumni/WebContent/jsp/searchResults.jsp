@@ -47,5 +47,27 @@
 			</logic:iterate>
 		</table>
 	</logic:equal>
+		<logic:equal value="byPassoutYear" property="alumniFinder.searchType" name="searchForm">
+		<table>
+			<tr>
+				<th class="searchHeader">Name</th>
+				<th class="searchHeader">E-mail ID</th>
+				<th class="searchHeader">Organization Name</th>
+				<th class="searchHeader">Course</th>
+				<th class="searchHeader">Passout Year</th>
+				<th class="searchHeader">Platform</th>
+			</tr>
+			<logic:iterate id="result" property="searchResult" name="searchForm" indexId="ctx">
+			<tr>
+				<td class="<%= (ctx%2==0)? "rowEven":"rowOdd" %>"><bean:write name="result" property="name"/> </td>
+				<td class="<%= (ctx%2==0)? "rowEven":"rowOdd" %>"><bean:write name="result" property="emailId"/> </td>
+				<td class="<%= (ctx%2==0)? "rowEven":"rowOdd" %>"><bean:write name="result" property="orgName"/> </td>
+				<td class="<%= (ctx%2==0)? "rowEven":"rowOdd" %>"><bean:write name="result" property="course"/> </td>
+				<td class="<%= (ctx%2==0)? "rowEven":"rowOdd" %>"><bean:write name="result" property="passoutYear"/> </td>
+				<td class="<%= (ctx%2==0)? "rowEven":"rowOdd" %>"><bean:write name="result" property="platform"/> </td>
+			</tr>
+			</logic:iterate>
+		</table>
+	</logic:equal>
 </div>
 <div><a href="/alumni/showAlumniSearchForm.do?method=showAlumniSearchForm">&lt;&lt; Back</a></div>
