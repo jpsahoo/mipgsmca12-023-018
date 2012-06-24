@@ -1,3 +1,4 @@
+<%@page import="ac.mipgs.common.Constants"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -13,10 +14,10 @@
 
 <p>
 <h3>
-<logic:equal value="student" name="registrationForm" property="type">
+<logic:equal value="<%=Constants.REGISTRATION_TYPE_STUDENT %>" name="registrationForm" property="type">
 STUDENT REGISTRATION FORM
 </logic:equal>
-<logic:equal value="alumni" name="registrationForm" property="type">
+<logic:equal value="<%=Constants.REGISTRATION_TYPE_ALUMNI %>" name="registrationForm" property="type">
 ALUMNI REGISTRATION FORM
 </logic:equal>
 </h3>
@@ -56,6 +57,7 @@ Required field
 		<td>Telephone Number:</td>
 		<td><html:text property="registration.telephoneNumber" title="please enter telephone number along with STD code"></html:text></td>
 	</tr>
+	<logic:notEqual value="gotoProfile" property="fromAction" name="registrationForm">
 	<tr>
 		<td>User Nane:</td>
 		<td><html:text property="registration.userName"></html:text> *</td>
@@ -64,14 +66,11 @@ Required field
 		<td>Password</td>
 		<td><html:password property="registration.password"></html:password> *</td>
 	</tr>
-	<tr class="sectiontableentry1 cbft_password" id="cbfr_51__verify">
-
-	</tr>
-	<tr class="sectiontableentry1 cbft_password" id="cbfr_51__verify">
+	<tr>
 		<td>Confirm Password:</td>
 		<td><input type="password" name="password__verify" id="password__verify"/> *</td>
 	</tr>
-
+	</logic:notEqual>
 	<tr>
 		<td>Address Line1:</td>
 		<td><html:text property="registration.address.addrLine1"></html:text></td>
@@ -117,12 +116,12 @@ Required field
 		</td>
 
 		<td>
-			<html:select property="registration.course.course" styleId="registration.course.course" />*
+			<html:select property="registration.course.course" styleId="registration.course.course"></html:select>*
 		</td>
 
 	</tr>
 
-	<logic:equal value="student" name="registrationForm" property="type">
+	<logic:equal value="<%=Constants.REGISTRATION_TYPE_STUDENT %>" name="registrationForm" property="type">
 	<tr>
 		<td><label>Year:</label>
 		</td>
@@ -142,7 +141,7 @@ Required field
 		<td><html:text property="registration.dob"></html:text></td>
 	</tr>
 	
-	<logic:equal value="alumni" name="registrationForm" property="type">
+	<logic:equal value="<%=Constants.REGISTRATION_TYPE_ALUMNI %>" name="registrationForm" property="type">
 	<tr>
 		<td><label>Year of passing:</label></td>
 		<td><html:text property="registration.alumni.passOutYear"></html:text> *</td>

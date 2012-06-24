@@ -18,6 +18,7 @@ import org.apache.struts.actions.DispatchAction;
 
 import ac.mipgs.factory.ServiceFactory;
 import ac.mipgs.service.ProfileService;
+import ac.mipgs.vo.Registration;
 
 public class ProfileAction extends DispatchAction {
 
@@ -60,8 +61,16 @@ public class ProfileAction extends DispatchAction {
 	public ActionForward gotoProfile(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		RegistrationForm rForm = (RegistrationForm) form;
+		String id = rForm.getRegistration().getId();
 		
-		//TODO Implement this
-		return null;
+		ProfileService service = ServiceFactory.getProfileService();
+		Registration registration = service.getProfile(id);
+		rForm.setRegistration(registration);
+		
+		rForm.setFromAction("gotoProfile");
+		rForm.setType(registration.getType());
+		
+		return mapping.findForward("success");
 	}
 }
