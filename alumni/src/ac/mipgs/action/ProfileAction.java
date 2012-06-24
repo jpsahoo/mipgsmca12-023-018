@@ -56,4 +56,12 @@ public class ProfileAction extends DispatchAction {
 		}
 		return imageData;
 	}
+	
+	public ActionForward gotoProfile(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		
+		//TODO Implement this
+		return null;
+	}
 }

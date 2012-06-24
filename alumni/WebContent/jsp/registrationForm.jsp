@@ -25,7 +25,7 @@ ALUMNI REGISTRATION FORM
 Required field
 </img>
 
-<html:form action="register" method="post">
+<html:form action="register" method="post" enctype="multipart/form-data">
 <html:hidden property="method" value="register"/>
 <html:hidden property="type" name="registrationForm"/>
 <table>
@@ -51,17 +51,14 @@ Required field
 	<tr>
 		<td>Mobile Number:</td>
 		<td><html:text property="registration.mobileNumber" title='This Field is required'></html:text> *</td>
-		</td>
 	</tr>
 	<tr>
 		<td>Telephone Number:</td>
 		<td><html:text property="registration.telephoneNumber" title="please enter telephone number along with STD code"></html:text></td>
-		</td>
 	</tr>
 	<tr>
 		<td>User Nane:</td>
 		<td><html:text property="registration.userName"></html:text> *</td>
-		</td>
 	</tr>
 	<tr>
 		<td>Password</td>
@@ -71,21 +68,8 @@ Required field
 
 	</tr>
 	<tr class="sectiontableentry1 cbft_password" id="cbfr_51__verify">
-		<td class="titleCell"><label for="password__verify"
-			id="cblabpassword__verify"
-			title="Verify Password:Please enter a valid password.  No spaces, at least 6 characters and contain lower and upper-case letters, numbers and special signs">Verify
-				Password:</label>
-		</td>
-		<td class="fieldCell" id="cbfv_51__verify"><input type="password"
-			name="password__verify" id="password__verify" value="" mosReq="1"
-			mosLabel="Verify Password" autocomplete="off" size="25"
-			maxlength="50"
-			class="{minlength:6,equalTo:'#password'} required inputbox"
-			title="Verify Password: Please enter a valid password.  No spaces, at least 6 characters and contain lower and upper-case letters, numbers and special signs" /><span
-			class='cbFieldIcons'> <img src='mipgslogosmall.jpg' width='16'
-				height='16' alt='*' title='This Field is required' />
-		</span>
-		</td>
+		<td>Confirm Password:</td>
+		<td><input type="password" name="password__verify" id="password__verify"/> *</td>
 	</tr>
 
 	<tr>
@@ -95,12 +79,10 @@ Required field
 	<tr>
 		<td>Address Line2:</td>
 		<td><html:text property="registration.address.addrLine2"></html:text></td>
-		</td>
 	</tr>
 	<tr>
 		<td>City:</td>
 		<td><html:text property="registration.address.city"></html:text></td>
-		</td>
 	</tr>
 	<tr>
 		<td>State:</td>
@@ -196,6 +178,11 @@ Required field
 		<td><html:text property="registration.alumni.workCountry"></html:text> *</td>
 	</tr>
 	</logic:equal>
+	
+	<tr>
+		<td><label>Photo:</label></td>
+		<td><html:file property="photo"></html:file> </td>
+	</tr>
 
 	<tr>
 		<td colspan="2">

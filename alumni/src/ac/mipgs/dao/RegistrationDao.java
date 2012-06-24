@@ -21,8 +21,10 @@ public class RegistrationDao extends Dao{
 			.append("telephone_number, ")
 			.append("user_name, ")
 			.append("password, ")
-			.append("dob) ")
-			.append("values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)").toString();
+			.append("dob, ")
+			.append("photo, ")
+			.append("type) ")
+			.append("values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)").toString();
 	private static final String INSERT_ADDRESS_DETAILS = new StringBuffer("insert into address_tbl ")
 			.append("(id, ")
 			.append("addr_line_1, ")
@@ -64,6 +66,8 @@ public class RegistrationDao extends Dao{
 		pstmt.setString(index++, registration.getUserName());
 		pstmt.setString(index++, registration.getPassword());
 		pstmt.setString(index++, registration.getDob());
+		pstmt.setBytes(index++, registration.getPhoto());
+		pstmt.setString(index++, registration.getType());
 		pstmt.executeUpdate();
 	}
 	
