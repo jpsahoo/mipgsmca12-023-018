@@ -16,7 +16,7 @@
 			<td width="100%" colspan="2" nowrap="nowrap" style="background:url(/alumni/images/mainbg.gif) 0 0 repeat-x #F6F4E4; color:#6B6854; font:14px/18px "Trebuchet MS", Arial, Helvetica, sans-serif;"><tiles:insert attribute="header" ignore="true" /></td>
 		</tr>
 		<tr height="80%">
-			<td width="25%" align="center">
+			<td width="25%" align="center" style="vertical-align: top;">
 				<table width="100%">	
 					<tr height="50%">
 						<td width="100%"><tiles:insert attribute="links" /></td>

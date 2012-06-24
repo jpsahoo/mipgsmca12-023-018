@@ -13,7 +13,7 @@
 function openProfile(id) {
 	var action = '/alumni/gotoProfile.do?method=gotoProfile&id=' + id;
 	var profileForm = document.createElement("form");
-	profileForm.method = 'post';
+	//profileForm.method = 'post';
 	profileForm.action = action;
 	profileForm.submit();
 }
@@ -51,7 +51,9 @@ if(userSession == null) {
 <table id="leftPan" width="100%">
 	<tr>
 		<td align="left">
-			<form action="" method="post">
+			<html:form action="gotoProfile" method="post" styleId="profileForm">
+				<html:hidden property="method" value="gotoProfile"/>
+				<html:hidden property="registration.id" value="<%=id%>"/>
 				<div style="width: 100%; height: 30%; vertical-align: middle;" align="center">
 					<table width="100%" height="100%" align="center" style="padding-left: 5px; padding-right: 5px;">
 						<tr>
@@ -63,9 +65,9 @@ if(userSession == null) {
 					</table>
 				</div>
 				<div align="center" style="width: 100%; height: 70%; vertical-align: middle;">
-					<img style="width: 100px; height: 100px;" alt="" src='/alumni/getPhoto.do?method=getPhoto&id=<%=id %>' onclick="openProfile(<%=id %>)"> 
+					<img style="width: 100px; height: 100px;" alt="" src='/alumni/getPhoto.do?method=getPhoto&id=<%=id %>' onclick='document.getElementById("profileForm").submit();'> 
 				</div>
-			</form>
+			</html:form>
 		</td>
 	</tr>
 </table>

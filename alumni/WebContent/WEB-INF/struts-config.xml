@@ -48,6 +48,9 @@
     	</action>
     	<action path="/getPhoto" type="ac.mipgs.action.ProfileAction" parameter="method">
     	</action>
+    	<action path="/gotoProfile" type="ac.mipgs.action.ProfileAction" parameter="method" name="registrationForm">
+    	    <forward name="success" path="registrationForm" />
+    	</action>
     </action-mappings>
 
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
