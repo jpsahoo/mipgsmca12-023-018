@@ -31,11 +31,11 @@ Required field
 <table>
 	<tr>
 		<td>First Name:</td>
-		<td><html:text property="registration.firstName"></html:text> *</td>
+		<td><html:text property="registration.firstName" title="First Name: Please enter your real first name."></html:text> *</td>
 	</tr>
 	<tr>
 		<td>Last Name:</td>
-		<td><html:text property="registration.lastName"></html:text> *</td>
+		<td><html:text property="registration.lastName" title="Last Name: Please enter your real last name." ></html:text> *</td>
 	</tr>
 	<tr>
 		<td>Gender:</td>
@@ -46,16 +46,16 @@ Required field
 	</tr>
 	<tr>
 		<td>Email_id:</td>
-		<td><html:text property="registration.emailId"></html:text> *</td>
+		<td><html:text property="registration.emailId" title="Email:Please enter a valid e-mail address."></html:text> *</td>
 	</tr>
 	<tr>
 		<td>Mobile Number:</td>
-		<td><html:text property="registration.mobileNumber"></html:text> *</td>
+		<td><html:text property="registration.mobileNumber" title='This Field is required'></html:text> *</td>
 		</td>
 	</tr>
 	<tr>
 		<td>Telephone Number:</td>
-		<td><html:text property="registration.telephoneNumber"></html:text></td>
+		<td><html:text property="registration.telephoneNumber" title="please enter telephone number along with STD code"></html:text></td>
 		</td>
 	</tr>
 	<tr>
