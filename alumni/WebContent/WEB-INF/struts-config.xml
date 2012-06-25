@@ -32,7 +32,12 @@
     	<action path="/navigateRegistration" type="ac.mipgs.action.NavigationAction" parameter="method" name="registrationForm" scope="request">
     	    <forward name="success" path="registrationForm"></forward>
     	</action>
-    	
+    	<action path="/navigateAboutUs" type="ac.mipgs.action.NavigationAction" parameter="method" scope="request">
+    	    <forward name="success" path="aboutUs"></forward>
+    	</action>
+    	<action path="/navigateSMedia" type="ac.mipgs.action.NavigationAction" parameter="method" scope="request">
+    	    <forward name="success" path="socialMedia"></forward>
+    	</action>
     	<action path="/register" type="ac.mipgs.action.RegistrationAction" parameter="method" name="registrationForm">
     	    <forward name="success" path="registrationSuccessPage"></forward>
     	    <forward name="failed" path="registrationErrorPage"></forward>

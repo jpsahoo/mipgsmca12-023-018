@@ -47,4 +47,14 @@ public class NavigationAction extends DispatchAction {
 		
 		return mapping.findForward("success");
 	}
+	public ActionForward navigateAboutUs(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		return mapping.findForward("success");
+	}
+	public ActionForward navigateSMedia(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		return mapping.findForward("success");
+	}
 }
