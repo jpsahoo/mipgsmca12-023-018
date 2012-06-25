@@ -17,6 +17,7 @@
         <put name="login"   value="/jsp/common/login.jsp" />
         <put name="footer" value="/jsp/common/footer.jsp" />
         <put name="body"   value="/jsp/common/home.jsp" />
+        <put name="right"   value="/jsp/common/right.jsp" />
     </definition>
     
     <definition name="homePage" extends="applicationLayout">
