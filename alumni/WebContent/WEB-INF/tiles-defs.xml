@@ -60,5 +60,10 @@
     <definition name="studentValidationForm" extends="applicationLayout">
         <put name="body" value="/jsp/validateStudent.jsp"></put>
     </definition>
-    
+    <definition name="aboutUs" extends="applicationLayout">
+        <put name="body" value="/jsp/aboutus.jsp"></put>
+    </definition>
+    <definition name="socialMedia" extends="applicationLayout">
+        <put name="body" value="/jsp/socialmedia.jsp"></put>
+    </definition>
 </tiles-definitions>
