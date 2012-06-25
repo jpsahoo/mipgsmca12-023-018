@@ -32,6 +32,11 @@ public class NavigationAction extends DispatchAction {
 			throws Exception {
 		return mapping.findForward("success");
 	}
+	public ActionForward studentValidation(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		return mapping.findForward("success");
+	}
 	public ActionForward showAlumniSearchForm(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {

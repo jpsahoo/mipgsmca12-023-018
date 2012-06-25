@@ -8,6 +8,7 @@
         <form-bean name="registrationForm" type="ac.mipgs.action.RegistrationForm" />
         <form-bean name="loginForm" type="ac.mipgs.action.LoginForm" />
         <form-bean name="searchForm" type="ac.mipgs.action.AlumniSearchForm" />
+        <form-bean name="studentValidatorForm" type="ac.mipgs.action.StudentValidatorForm" />
     </form-beans>
     
     <global-exceptions>
@@ -50,6 +51,13 @@
     	</action>
     	<action path="/gotoProfile" type="ac.mipgs.action.ProfileAction" parameter="method" name="registrationForm">
     	    <forward name="success" path="registrationForm" />
+    	</action>
+    	<action path="/validateStudent" type="ac.mipgs.action.RegistrationAction" parameter="method" name="studentValidatorForm">
+    	    <forward name="failed" path="studentValidationForm" />
+    	    <forward name="success" path="/navigateRegistration.do?method=navigateRegistration" />
+    	</action>
+    	<action path="/studentValidation" type="ac.mipgs.action.NavigationAction" parameter="method" name="studentValidatorForm">
+    	    <forward name="success" path="studentValidationForm" />
     	</action>
     </action-mappings>
 
