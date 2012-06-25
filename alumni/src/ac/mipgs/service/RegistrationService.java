@@ -5,6 +5,7 @@ import java.sql.Connection;
 import ac.mipgs.dao.Dao;
 import ac.mipgs.dao.RegistrationDao;
 import ac.mipgs.vo.Registration;
+import ac.mipgs.vo.StudentValidator;
 
 public class RegistrationService {
 
@@ -67,6 +68,15 @@ public class RegistrationService {
 			throw new Exception("Failed to save registration details");
 		} finally {
 			Dao.close();
+		}
+	}
+	
+	public boolean validateStudent(StudentValidator validator) throws Exception {
+		try {
+			Dao.getDBConnection();
+			return RegistrationDao.isStudentExists(validator);
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
 		}
 	}
 }

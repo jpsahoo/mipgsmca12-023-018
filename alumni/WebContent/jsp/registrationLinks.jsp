@@ -4,7 +4,7 @@
 <div>
 	<h3>REGISTRATION FORMS</h3><br />
 	<ul>
-	<li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/alumni/navigateRegistration.do?method=navigateRegistration&type=student"><span>Student Registration Form</span></a>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/alumni/studentValidation.do?method=studentValidation&type=student"><span>Student Registration Form</span></a>
 	<li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/alumni/navigateRegistration.do?method=navigateRegistration&type=alumni"><span>Alumni Registration Form</span></a>
 	</ul>
 </div>

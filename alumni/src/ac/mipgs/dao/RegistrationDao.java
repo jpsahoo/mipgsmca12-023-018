@@ -8,6 +8,7 @@ import ac.mipgs.vo.Address;
 import ac.mipgs.vo.Alumni;
 import ac.mipgs.vo.Course;
 import ac.mipgs.vo.Registration;
+import ac.mipgs.vo.StudentValidator;
 
 public class RegistrationDao extends Dao{
 	
@@ -52,6 +53,7 @@ public class RegistrationDao extends Dao{
 			.append(" values (?, ?, ?, ?, ?, ?, ?, ?) ")
 			.toString();
 	private static final String IS_USER_EXISTS = "select 1 from ALUMNI_DETAILS where user_name = ?";
+	private static final String IS_STUDENT_EXISTS = "select 1 from STUDENT_DATA where full_name like ? and roll_number = ?";
 	
 	public static void insertAlumniDetails(Registration registration) throws SQLException {
 		PreparedStatement pstmt = connection.prepareStatement(INSERT_ALUMNI_DETAILS);
@@ -116,5 +118,13 @@ public class RegistrationDao extends Dao{
 		ResultSet rs = pstmt.executeQuery();
 		return rs.next(); 
 		
+	}
+	
+	public static boolean isStudentExists(StudentValidator validator) throws SQLException {
+		PreparedStatement pstmt = connection.prepareStatement(IS_STUDENT_EXISTS);
+		pstmt.setString(1, "%" + validator.getName() + "%");
+		pstmt.setString(2, validator.getRollNumber());
+		ResultSet rs = pstmt.executeQuery();
+		return rs.next();
 	}
 }

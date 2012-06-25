@@ -24,6 +24,7 @@ import ac.mipgs.vo.UserSession;
 public class RegistrationAction extends DispatchAction {
 	
 	private static final int MAX_FILE_SIZE = 100*1024; // 100KB
+	private static final String VALIDATE_ERROR = "VALIDATE_ERROR";
 	
 	public ActionForward register(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -88,5 +89,19 @@ public class RegistrationAction extends DispatchAction {
 			
 		}
 		return userSession;
+	}
+	
+	public ActionForward validateStudent(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		StudentValidatorForm studentValidatorForm = (StudentValidatorForm) form;
+		if (Constants.REGISTRATION_TYPE_STUDENT.equals(studentValidatorForm.getType())) {
+			RegistrationService service = ServiceFactory.getRegistrationService();
+			if (!service.validateStudent(studentValidatorForm.getValidator())) {
+				request.setAttribute(VALIDATE_ERROR, "Student doesn't exists");
+				return mapping.findForward("failed");
+			}
+		}
+		return mapping.findForward("success");
 	}
 }
