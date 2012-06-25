@@ -105,4 +105,10 @@ ul{list-style-type:none;}
 .searchHeader {background-color: gray; margin-left: 5px; padding-left: 5px; padding-right: 5px}
 .rowEven {background-color: white; margin-left: 5px; padding-left: 5px; padding-right: 5px}
 .rowOdd {background-color: #CCC4C4; margin-left: 5px; padding-left: 5px; padding-right: 5px}
+.divStyle {
+	width:240px; 
+	height:231px; 
+	display:block; 
+	background:url(/alumni/images/menu-bg.jpg) 0 0 no-repeat; padding:28px 0 0;
+}
 

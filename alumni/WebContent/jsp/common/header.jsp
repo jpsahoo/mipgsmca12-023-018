@@ -10,7 +10,7 @@
 			<img alt="Logo here" src="/alumni/images/logo.gif" style="width: inherit; height: 150px;"/>
 		</td>
 		<td style="text-align: center; vertical-align: middle;">
-			<font color="red" family="times new roman">
+			<font color="blue" family="times new roman" style="font-size: 18px;">
 			<p><STRONG>MATRUSRI INST OF P.G. STUDIES</strong></p>
 			<p>SAIDABAD</p>
 			<p>Alumni Portal</p>

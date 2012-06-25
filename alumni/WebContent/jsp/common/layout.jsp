@@ -13,10 +13,10 @@
 <body>
 	<table cellpadding="10" width="100%">
 		<tr height="10%">
-			<td width="100%" colspan="2" nowrap="nowrap" style="background:url(/alumni/images/mainbg.gif) 0 0 repeat-x #F6F4E4; color:#6B6854; font:14px/18px "Trebuchet MS", Arial, Helvetica, sans-serif;"><tiles:insert attribute="header" ignore="true" /></td>
+			<td width="100%" colspan="3" nowrap="nowrap" style="background:url(/alumni/images/mainbg.gif) 0 0 repeat-x #F6F4E4; color:#6B6854; font:14px/18px "Trebuchet MS", Arial, Helvetica, sans-serif;"><tiles:insert attribute="header" ignore="true" /></td>
 		</tr>
 		<tr height="80%">
-			<td width="25%" align="center" style="vertical-align: top;">
+			<td width="20%" align="center" style="vertical-align: top;">
 				<table width="100%">	
 					<tr height="50%">
 						<td width="100%"><tiles:insert attribute="links" /></td>
@@ -26,10 +26,11 @@
 					</tr>
 				</table>
 			</td>
-			<td width="75%" style="vertical-align: top;"><tiles:insert attribute="body" /></td>
+			<td width="60%" style="vertical-align: top;"><tiles:insert attribute="body" /></td>
+			<td width="20%" style="vertical-align: top;"><tiles:insert attribute="right" /></td>
 		</tr>
 		<tr height="10%">
-			<td width="100%" colspan="2"><tiles:insert attribute="footer" /></td>
+			<td width="100%" colspan="3"><tiles:insert attribute="footer" /></td>
 		</tr>
 	</table>
 </body>
