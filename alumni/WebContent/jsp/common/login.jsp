@@ -65,7 +65,7 @@ if(userSession == null) {
 					</table>
 				</div>
 				<div align="center" style="width: 100%; height: 70%; vertical-align: middle;">
-					<img style="width: 100px; height: 100px;" alt="" src='/alumni/getPhoto.do?method=getPhoto&id=<%=id %>' onclick='document.getElementById("profileForm").submit();'> 
+					<img title="Click to view and edit your profile" style="width: 100px; height: 100px;" alt="" src='/alumni/getPhoto.do?method=getPhoto&id=<%=id %>' onclick='document.getElementById("profileForm").submit();'> 
 				</div>
 			</html:form>
 		</td>
