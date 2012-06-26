@@ -57,4 +57,9 @@ public class NavigationAction extends DispatchAction {
 			throws Exception {
 		return mapping.findForward("success");
 	}
+	public ActionForward navigateAnnualEvents(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		return mapping.findForward("success");
+	}
 }

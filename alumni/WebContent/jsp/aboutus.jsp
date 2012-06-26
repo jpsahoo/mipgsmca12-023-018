@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<div id="rightPan">
+<div class="bodyStyle">
 <p>
-<h2>ABOUT MIPGS</h2>
+<h2 class="head2Style">ABOUT MIPGS</h2>
 </p>
-
+<br/><br/>
 <p>
 	<span class="boldtext">MIPGS i.e., Matrusri Institute of
 		Post-Graduate Studies,</span> was earlier part of its sister concern MVSR
