@@ -26,7 +26,7 @@
 					</tr>
 				</table>
 			</td>
-			<td width="60%" style="vertical-align: top;"><tiles:insert attribute="body" /></td>
+			<td width="70%" style="vertical-align: top;"><tiles:insert attribute="body" /></td>
 			<td width="20%" style="vertical-align: top;"><tiles:insert attribute="right" /></td>
 		</tr>
 		<tr height="10%">

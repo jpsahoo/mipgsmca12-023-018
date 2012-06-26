@@ -67,4 +67,7 @@
     <definition name="socialMedia" extends="applicationLayout">
         <put name="body" value="/jsp/socialmedia.jsp"></put>
     </definition>
+    <definition name="annualEvents" extends="applicationLayout">
+        <put name="body" value="/jsp/annualEvents.jsp"></put>
+    </definition>
 </tiles-definitions>

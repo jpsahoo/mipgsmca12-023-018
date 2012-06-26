@@ -111,4 +111,21 @@ ul{list-style-type:none;}
 	display:block; 
 	background:url(/alumni/images/menu-bg.jpg) 0 0 no-repeat; padding:28px 0 0;
 }
+.bodyStyle {
+	width: 100%;
+	text-align: justify;
+	float: left; 
+}
+.head2Style {
+	width:240px; 
+	height:36px; 
+	display:block; 	
+	background:url(/alumni/images/icon1.jpg) 0 0 no-repeat #F6F4E4; 
+	color:#8F146E; 
+	font-size:24px; 
+	line-height:36px; 
+	padding:0 0 0 65px; 
+	margin:29px 0 0 9px;
+}
+	
 

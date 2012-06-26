@@ -64,6 +64,9 @@
     	<action path="/studentValidation" type="ac.mipgs.action.NavigationAction" parameter="method" name="studentValidatorForm">
     	    <forward name="success" path="studentValidationForm" />
     	</action>
+    	<action path="/navigateAnnualEvents" type="ac.mipgs.action.NavigationAction" parameter="method" scope="request">
+    	    <forward name="success" path="annualEvents"></forward>
+    	</action>
     </action-mappings>
 
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
