@@ -4,11 +4,11 @@
 <div id="footermainPan">
 <div id="footerPan">
 	<ul>
-		<li class="current_page_item"><a href="index.html">Home</a>|</li>
-		<li><a href="findalumni.html">Find Alumni</a>|</li>
-		<li><a href="/alumni/jsp/aboutus.jsp">About us</a>|</li>
-		<li><a href="#">volunteer</a>|</li>
-		<li><a href="socialmedia.html">social media</a>|</li>
+		<li class="current_page_item"><a href="index.do?method=index">Home</a>|</li>
+		<li><a href="/alumni/showAlumniSearchForm.do?method=showAlumniSearchForm">Find Alumni</a>|</li>
+		<li><a href="/alumni/navigateAboutUs.do?method=navigateAboutUs">About us</a>|</li>
+		
+		<li><a href="/alumni/navigateSMedia.do?method=navigateSMedia">social media</a>|</li>
 		<li><a href="http://www.mipgs.ac.in/">Matrusri home</a></li>
 	</ul>
 </div>
