@@ -29,6 +29,7 @@ Required field
 <html:form action="register" method="post" enctype="multipart/form-data">
 <html:hidden property="method" value="register"/>
 <html:hidden property="type" name="registrationForm"/>
+<html:hidden property="registration.id" name="registrationForm"/>
 <table>
 	<tr>
 		<td>First Name:</td>
@@ -57,7 +58,7 @@ Required field
 		<td>Telephone Number:</td>
 		<td><html:text property="registration.telephoneNumber" title="please enter telephone number along with STD code"></html:text></td>
 	</tr>
-	<logic:notEqual value="gotoProfile" property="fromAction" name="registrationForm">
+	<logic:empty property="registration.id" name="registrationForm">
 	<tr>
 		<td>User Nane:</td>
 		<td><html:text property="registration.userName"></html:text> *</td>
@@ -70,7 +71,7 @@ Required field
 		<td>Confirm Password:</td>
 		<td><input type="password" name="password__verify" id="password__verify"/> *</td>
 	</tr>
-	</logic:notEqual>
+	</logic:empty>
 	<tr>
 		<td>Address Line1:</td>
 		<td><html:text property="registration.address.addrLine1"></html:text></td>

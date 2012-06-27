@@ -54,6 +54,42 @@ public class RegistrationDao extends Dao{
 			.toString();
 	private static final String IS_USER_EXISTS = "select 1 from ALUMNI_DETAILS where user_name = ?";
 	private static final String IS_STUDENT_EXISTS = "select 1 from STUDENT_DATA where full_name like ? and roll_number = ?";
+	private static final String UPDATE_ALUMNI_DETAILS = new StringBuffer("update ALUMNI_DETAILS set ")
+			.append("  first_name = ?")
+			.append(" ,last_name = ?")
+			.append(" ,gender = ?")
+			.append(" ,email_id= ?")
+			.append(" ,mobile_number= ?")
+			.append(" ,telephone_number = ?")
+			.append(" ,dob = ?")
+			.append(" ,photo = ?")
+			.append(" where id = ?")
+			.toString();
+	private static final String UPDATE_COURSE_DETAILS = new StringBuffer("update COURSE_DETAILS set ")
+			.append("  graduation = ?")
+			.append(" ,course = ?")
+			.append(" ,year = ?")
+			.append(" where id = ?")
+			.toString();
+	private static final String UPDATE_ADDRESS_DETAILS = new StringBuffer("update ADDRESS_TBL set ")
+			.append("  addr_line_1 = ?")
+			.append(" ,addr_line_2 = ?")
+			.append(" ,city = ?")
+			.append(" ,state = ?")
+			.append(" ,country = ?")
+			.append(" ,pincode = ?")
+			.append(" where id = ?")
+			.toString();
+	private static final String UPDATE_ORGANIZATION_DETAILS = new StringBuffer("update ORGANIZATION_DETAILS set ")
+			.append("  passout_year = ?")
+			.append(" ,empl_nature = ?")
+			.append(" ,org_name = ?")
+			.append(" ,empl_city = ?")
+			.append(" ,work_country = ?")
+			.append(" ,platform = ?")
+			.append(" ,designation = ?")
+			.append(" where id = ?")
+			.toString();
 	
 	public static void insertAlumniDetails(Registration registration) throws SQLException {
 		PreparedStatement pstmt = connection.prepareStatement(INSERT_ALUMNI_DETAILS);
@@ -98,7 +134,6 @@ public class RegistrationDao extends Dao{
 	
 	public static void insertOrganizationDetails(Alumni alumni) throws SQLException {
 		PreparedStatement pstmt = connection.prepareStatement(INSERT_ORGANIZATION_DETAILS);
-		
 		int index=1;
 		pstmt.setString(index++, alumni.getId());
 		pstmt.setString(index++, alumni.getPassOutYear());
@@ -126,5 +161,58 @@ public class RegistrationDao extends Dao{
 		pstmt.setString(2, validator.getRollNumber());
 		ResultSet rs = pstmt.executeQuery();
 		return rs.next();
+	}
+	
+	public static void updateAlumniDetails(Registration registration) throws SQLException {
+		PreparedStatement pstmt = connection.prepareStatement(UPDATE_ALUMNI_DETAILS);
+		int index = 1;
+		pstmt.setString(index++, registration.getFirstName());
+		pstmt.setString(index++, registration.getLastName());
+		pstmt.setString(index++, registration.getGender());
+		pstmt.setString(index++, registration.getEmailId());
+		pstmt.setString(index++, registration.getMobileNumber());
+		pstmt.setString(index++, registration.getTelephoneNumber());
+		pstmt.setString(index++, registration.getDob());
+		pstmt.setBytes(index++, registration.getPhoto());
+		pstmt.setString(index++, registration.getId());
+		pstmt.executeUpdate();
+	}
+	
+	public static void updateAddressDetails(Address address) throws SQLException {
+		PreparedStatement pstmt = connection.prepareStatement(UPDATE_ADDRESS_DETAILS);
+		int index = 1;
+		pstmt.setString(index++, address.getAddrLine1());
+		pstmt.setString(index++, address.getAddrLine2());
+		pstmt.setString(index++, address.getCity());
+		pstmt.setString(index++, address.getState());
+		pstmt.setString(index++, address.getCountry());
+		pstmt.setString(index++, address.getPincode());
+		pstmt.setString(index++, address.getId());
+		pstmt.executeUpdate();
+	}
+	
+	public static void updateCourseDetails(Course course) throws SQLException {
+		PreparedStatement pstmt = connection.prepareStatement(UPDATE_COURSE_DETAILS);
+		int index=1;
+		pstmt.setString(index++, course.getGraduation());
+		pstmt.setString(index++, course.getCourse());
+		pstmt.setString(index++, course.getYear());
+		pstmt.setString(index++, course.getId());
+		pstmt.executeUpdate();
+	}
+	
+	public static void updateOrganizationDetails(Alumni alumni) throws SQLException {
+		PreparedStatement pstmt = connection.prepareStatement(UPDATE_ORGANIZATION_DETAILS);
+		int index=1;
+		pstmt.setString(index++, alumni.getPassOutYear());
+		pstmt.setString(index++, alumni.getEmplNature());
+		pstmt.setString(index++, alumni.getOrgName());
+		pstmt.setString(index++, alumni.getEmplCity());
+		pstmt.setString(index++, alumni.getWorkCountry());
+		pstmt.setString(index++, alumni.getPlatform());
+		pstmt.setString(index++, alumni.getDesignation());
+		pstmt.setString(index++, alumni.getId());
+		
+		pstmt.executeUpdate();
 	}
 }

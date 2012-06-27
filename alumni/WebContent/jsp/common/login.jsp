@@ -14,6 +14,11 @@ function openProfile(id) {
 	var action = '/alumni/gotoProfile.do?method=gotoProfile&id=' + id;
 	var profileForm = document.createElement("form");
 	//profileForm.method = 'post';
+	var el = document.createElement("input");
+	el.type = "hidden";
+	el.name = "registration.id";
+	el.value = id;
+	profileForm.appendChild(el);
 	profileForm.action = action;
 	profileForm.submit();
 }
