@@ -45,22 +45,34 @@ public class RegistrationAction extends DispatchAction {
 		
 		RegistrationService service = ServiceFactory.getRegistrationService();
 		try {
-			if (service.isUserExists(registration.getUserName())) {
-				request.setAttribute(Constants.ERROR_KEY, "User already exists, try with different user name");
-				return mapping.findForward("success");
-			}
 			String regType = registration.getType();
-			if (Constants.REGISTRATION_TYPE_ALUMNI.equals(regType)) {
-				service.registerAlumni(registration);
-			} else if (Constants.REGISTRATION_TYPE_STUDENT.equals(regType)) {
-				service.registerStudent(registration);
+			String id = registration.getId();
+			if (id == null || "".equals(id)) {
+				if (service.isUserExists(registration.getUserName())) {
+					request.setAttribute(Constants.ERROR_KEY, "User already exists, try with different user name");
+					return mapping.findForward("success");
+				}
+				if (Constants.REGISTRATION_TYPE_ALUMNI.equals(regType)) {
+					service.registerAlumni(registration);
+				} else if (Constants.REGISTRATION_TYPE_STUDENT.equals(regType)) {
+					service.registerStudent(registration);
+				}
+				UserSession userSession = loginAfterRegistration(registration.getUserName(), registration.getPassword());
+				HttpSession session = request.getSession();
+				session.setAttribute(Constants.LOGIN_INFO, userSession);
+				registrationForm.setFromAction("registration_save");
+			} else {
+				if (Constants.REGISTRATION_TYPE_ALUMNI.equals(regType)) {
+					service.updateAlumniDetails(registration);
+				} else if (Constants.REGISTRATION_TYPE_STUDENT.equals(regType)) {
+					service.updateStudentDetails(registration);
+				}
+				registrationForm.setFromAction("registration_update");
 			}
 		} catch (Exception e) {
 			return mapping.findForward("failed");
 		}
-		UserSession userSession = loginAfterRegistration(registration.getUserName(), registration.getPassword());
-		HttpSession session = request.getSession();
-		session.setAttribute(Constants.LOGIN_INFO, userSession);
+		
 		return mapping.findForward("success");
 	}
 	
