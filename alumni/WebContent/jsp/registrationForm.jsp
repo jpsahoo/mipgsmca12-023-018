@@ -6,10 +6,17 @@
 <%@taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 
-<script type="text/javascript" src="/alumni/scripts/registrationForm.js">
-<!--
+<script type="text/javascript" src="<%=request.getContextPath()%>/scripts/registrationForm.js"></script>
+<style type="text/css">@IMPORT url("/alumni/scripts/datePicker/jquery.datepick.css");</style>
+<script type="text/javascript" src="/alumni/scripts/datePicker/jquery.datepick.js"></script>
+<script language="JavaScript" type="text/javascript" src="<%=request.getContextPath()%>+"/scripts]/ts_picker.js""></script>
 
-//-->
+<script type="text/javascript">
+
+window.onload = function onLoadActions() {
+	//$('#registration.dob').datepick();
+	$('#registration.dob').datepick({dateFormat: 'dd-mm-yyyy'});
+}
 </script>
 
 <p>
@@ -21,16 +28,15 @@ STUDENT REGISTRATION FORM
 ALUMNI REGISTRATION FORM
 </logic:equal>
 </h3>
-</p>
 <img src='mipgslogosmall.jpg' width='16' height='16' alt='*' />
 Required field
-</img>
 
 <html:form action="register" method="post" enctype="multipart/form-data">
 <html:hidden property="method" value="register"/>
 <html:hidden property="type" name="registrationForm"/>
 <html:hidden property="registration.id" name="registrationForm"/>
 <table>
+	<tr><td colspan="2"><div id="registrationErrorsDiv" class="errorMessage" style="display: none; line-height: 16px; padding-left: 20px"></div></td></tr>
 	<tr>
 		<td>First Name:</td>
 		<td><html:text property="registration.firstName" title="First Name: Please enter your real first name."></html:text> *</td>
@@ -139,7 +145,12 @@ Required field
 
 	<tr>
 		<td><label>Birthday:</label></td>
-		<td><html:text property="registration.dob"></html:text></td>
+		<td>
+			<html:text property="registration.dob" styleId="registration.dob"></html:text>
+			<a href="javascript:show_calendar('document.register.dob', document.register.dob.value);"> 
+				<img src="<%=request.getContextPath()+"/images/cal.gif"%>" alt="a" width="18" height="18" border="0"/>
+			</a>
+		</td>
 	</tr>
 	
 	<logic:equal value="<%=Constants.REGISTRATION_TYPE_ALUMNI %>" name="registrationForm" property="type">
@@ -186,7 +197,7 @@ Required field
 
 	<tr>
 		<td colspan="2">
-			<html:submit value="Register" onclick="this.form.submit()"></html:submit>
+			<input type="button" value="Register" onclick="submitForm(this.form)"></input>
 		</td>
 	</tr>
 

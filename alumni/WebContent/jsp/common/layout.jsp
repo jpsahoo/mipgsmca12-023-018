@@ -6,9 +6,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><tiles:getAsString name="title" ignore="true" />
-</title>
+<title><tiles:getAsString name="title" ignore="true" /></title>
 <link href="/alumni/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/alumni/scripts/jquery-1.3.2.min.js"></script>
 </head>
 <body>
 	<table cellpadding="10" width="100%">

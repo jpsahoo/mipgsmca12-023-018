@@ -7,47 +7,63 @@
 <%@taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 
-<script type="text/javascript">
-<!--
-
-function openProfile(id) {
-	var action = '/alumni/gotoProfile.do?method=gotoProfile&id=' + id;
-	var profileForm = document.createElement("form");
-	//profileForm.method = 'post';
-	var el = document.createElement("input");
-	el.type = "hidden";
-	el.name = "registration.id";
-	el.value = id;
-	profileForm.appendChild(el);
-	profileForm.action = action;
-	profileForm.submit();
-}
-//-->
-</script>
+<script type="text/javascript" src="/alumni/scripts/validations.js"></script>
+<script type="text/javascript" src="/alumni/scripts/login.js"></script>
 
 <%
 
 UserSession userSession = (UserSession)session.getAttribute(Constants.LOGIN_INFO);
 if(userSession == null) {
 %>
+<html:form action="showRegistrationLinks" styleId="regForm">
+<html:hidden property="method" value="showRegistrationLinks"/>
+</html:form>
+<html:form action="login" method="post">
+<html:hidden property="method" value="login"/>
+<table class="loginForm">
+	<thead>
+		<tr><td class="heading2" colspan="2">Login here</td></tr>
+	</thead>
+	<tbody class="loginBody">
+		<tr><td colspan="2"><div id="errorDiv" class="errorMessage" style="display: none; line-height: 16px; padding-left: 20px"></div></td></tr>
+		<tr><td class="labelText" colspan="2">User Name</td></tr>
+		<tr>
+		<td class="inputField" colspan="2"><html:text property="login.userName" name="loginForm" /></td>
+		</tr>
+		<tr><td class="labelText" colspan="2">Password</td></tr>
+		<tr>
+			<td class="inputField" colspan="2"><html:password property="login.password" name="loginForm" /></td>
+		</tr>
+		<tr>
+			<td class="submitButton">
+				<input type="button" class="button" value="Login" onclick="submitLoginForm(this.form);"/>
+			</td>
+			<td class="submitButton">
+				<input type="button" class="button" value="Register now" onclick='document.getElementById("regForm").submit();'/>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</html:form>
+<%-- 
 <table id="leftPan">
 	<tr>
 		<td align="left">
 		<html:form action="login" method="post">
 			<html:hidden property="method" value="login"/>
 			<h2>members login</h2>
-			<label>Log In:</label> 
+			<label>User Name</label> 
 			<html:text property="login.userName" name="loginForm"></html:text>
-			<label>Password:</label> 
+			<label>Password</label> 
 			<html:password property="login.password" name="loginForm"></html:password> 
-			<input name="" type="submit" class="button" value="Login" />
+			<input name="" type="button" class="button" value="Login" onclick="submitLoginForm(this.form);"/>
 			<div id="register">
 				<a href="/alumni/showRegistrationLinks.do?method=showRegistrationLinks">Register now</a>
 			</div>
 		</html:form>
 		</td>
 	</tr>
-</table>
+</table>--%>
 <%
 } else {
 	String fullName = userSession.getFullName();
