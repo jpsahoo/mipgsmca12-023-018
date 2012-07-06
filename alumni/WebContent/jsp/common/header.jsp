@@ -11,9 +11,12 @@
 		</td>
 		<td style="text-align: center; vertical-align: middle;">
 			<font color="blue" family="times new roman" style="font-size: 18px;">
-			<p><STRONG>MATRUSRI INST OF P.G. STUDIES</strong></p>
-			<p>SAIDABAD</p>
-			<p>Alumni Portal</p>
+				<p><STRONG>MATRUSRI INSTITUTE OF POST GRADUATE STUDIES</strong></p>
+			</font>
+			<font color="blue" family="times new roman" style="font-size: 14px;">
+				<p>(Sponsored by Matrusri Education Society, Estd. 1980)</p>
+				<p>Affiliated to Osmania University & Recognized by AICTE</p>
+				<p>Alumni Portal</p>
 			</font>
 		</td>
 		<td align="right">
